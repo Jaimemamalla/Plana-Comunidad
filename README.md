@@ -32,17 +32,27 @@ falta subirlo a producción.
 `js/i18n.js` es el motor y `js/dict-comunidad.js` el diccionario. El motor lee
 `window.PLANA_I18N`, así que el diccionario tiene que cargarse antes.
 
-Traduce por nodo de texto, no por elemento, para no tocar el marcado. Los dos
-titulares que la capa de punch trocea en palabras (el del FAQ y el del CTA)
-van en `heads`, por elemento entero. Los demás en `text`.
+Traduce por nodo de texto, no por elemento, para no tocar el marcado. Los
+titulares que la capa de punch trocea en palabras van en `heads`, por
+elemento entero, y los demás en `text`. Ahora mismo `heads` está vacío: los
+dos titulares que iban ahí se fueron con el FAQ y el cierre.
 
 **El mismo motor está en el repo de clientes.** Si se arregla algo aquí, hay
 que copiarlo allí, y al revés.
 
 Se puede forzar con `?lang=en` y se recuerda en `localStorage`.
 
+## Qué hay aquí ahora
+
+Solo la sección de la Comunidad Plana. El manifiesto, el FAQ y el cierre
+se movieron a la web de clientes el 8 sep 2026: hablaban a la empresa, no
+al candidato. El FAQ de candidatos y el cierre nuevo los tiene que escribir
+Marina.
+
 ## Pendiente
 
+- [ ] **El FAQ de candidatos y el cierre.** La web se queda en una sola
+      sección hasta que existan.
 - [ ] **El endpoint del formulario.** `index.html` apunta a
       `https://formspree.io/f/TU_ENDPOINT`. Mientras siga así, el formulario
       avisa al candidato de que no está conectado y no envía nada. No finge
