@@ -1,6 +1,6 @@
 window.PLANA_I18N = {
 
-  headSelectors: '#com-title',
+  headSelectors: '#com-title, .sec-head h2, #cta h2',
 
   text: {
     /* nav */
@@ -46,6 +46,54 @@ window.PLANA_I18N = {
     'Confirmar': 'Confirm',
     '¡Estás dentro de la Comunidad Plana!': 'You are in the Plana Community!',
 
+    /* faq */
+    'FAQ': 'FAQ',
+    'Preguntas frecuentes': 'Frequently asked questions',
+    '¿Me cuesta algo?': 'Does it cost me anything?',
+    'Nada. Nunca.': 'Nothing. Ever.',
+    'Plana cobra a las empresas un precio fijo por cubrir cada vacante, y ese es todo nuestro negocio. Un candidato no paga por unirse, ni por que le presentemos a una empresa, ni por nada. Si alguien te pide dinero en nuestro nombre, no somos nosotros.':
+      'Plana charges companies a fixed price to fill each role, and that is our entire business. A candidate pays nothing to join, nothing to be put forward to a company, nothing at all. If someone asks you for money in our name, it is not us.',
+    '¿Tengo que apuntarme a cada oferta?': 'Do I have to apply to every listing?',
+    'No, y ese es justo el sentido de la Comunidad. Subes tu CV': 'No, and that is exactly the point of the Community. You upload your CV',
+    'una vez': 'once',
+    'y Planax lo cruza con cada vacante que abrimos. Si encajas, te escribimos nosotros. No tienes que estar mirando ofertas ni reenviando el mismo PDF cien veces.':
+      'and Planax matches it against every role we open. If you fit, we write to you. No trawling through listings, no sending the same PDF a hundred times.',
+    '¿De verdad me vais a contestar?': 'Will you really get back to me?',
+    'Sí. Es nuestra bandera y por eso está escrita en la portada. Si entras en un proceso, sabrás en qué punto estás y qué se ha decidido, también cuando la respuesta es que no.':
+      'Yes. It is our flag, which is why it is written on the front page. If you enter a process, you will know where you stand and what was decided, including when the answer is no.',
+    'Estar en la Comunidad no llena tu bandeja de entrada:': 'Being in the Community will not fill your inbox:',
+    'te escribimos cuando hay una vacante que encaja contigo, no antes.': 'we write when there is a role that fits you, not before.',
+    '¿Quién ve mi CV?': 'Who sees my CV?',
+    'Nuestro equipo y, cuando tu candidatura avanza en un proceso, la empresa de esa vacante. Nadie más.':
+      'Our team and, when your application advances in a process, the company behind that role. Nobody else.',
+    'No vendemos tus datos ni los usamos para entrenar modelos de terceros.': 'We do not sell your data and we do not use it to train third-party models.',
+    'Puedes pedirnos que los borremos cuando quieras escribiendo a': 'You can ask us to delete it whenever you want by writing to',
+    '. Está todo detallado en la': '. It is all set out in our',
+    'Política de Privacidad': 'Privacy Policy',
+    '¿Qué es Planax y decide una máquina por mí?': 'What is Planax, and does a machine decide for me?',
+    'Planax es nuestra IA propia: lee tu CV, lo cruza con las vacantes abiertas y hace el primer cribado.':
+      'Planax is our own AI: it reads your CV, matches it against open roles and runs the first screening.',
+    'No decide sola.': 'It does not decide on its own.',
+    'Detrás de cada proceso hay personas de nuestro equipo, y siempre puedes pedir que una persona revise tu candidatura.':
+      'There are people from our team behind every process, and you can always ask for a human to review your application.',
+    '¿Todas las ofertas llevan rango salarial?': 'Do all listings show a salary range?',
+    'Todas. Sin "salario a convenir" y sin averiguarlo en la cuarta entrevista. Si una oferta de Plana no publica su rango,':
+      'All of them. No "salary negotiable", no finding out in the fourth interview. If a Plana listing does not publish its range,',
+    'es un error nuestro': 'that is our mistake',
+    'y queremos que nos lo digas.': 'and we want you to tell us.',
+    '¿Sois una ETT?': 'Are you a temp agency?',
+    'No. No te ponemos en nuestra nómina ni te cedemos a nadie. Hacemos selección directa: te presentamos a la empresa y, si os elegís,':
+      'No. We do not put you on our payroll or hire you out to anyone. We do direct recruitment: we introduce you to the company and, if you choose each other,',
+    'firmas con ella': 'you sign with them',
+    '. Trabajas para ella desde el día uno, con su contrato y sus condiciones.': '. You work for them from day one, on their contract and their terms.',
+    '¿Solo trabajáis en España?': 'Do you only work in Spain?',
+    'Nuestro foco es España. Si estás fuera pero te interesan las vacantes de aquí, súbenos el CV igual y te tenemos en cuenta para las que encajen.':
+      'Our focus is Spain. If you are abroad but interested in roles here, send us your CV anyway and we will consider you for the ones that fit.',
+
+    /* cta final */
+    'Sin apuntarte a cada oferta y sin quedarte esperando una respuesta que no llega.':
+      'Without applying to every listing, and without waiting for an answer that never comes.',
+
     /* footer */
     'Aquí nadie se queda sin respuesta. Feedback siempre.':
       'Nobody here goes without an answer. Feedback always.',
@@ -63,7 +111,9 @@ window.PLANA_I18N = {
      elemento entero para no perder el marcado. */
   heads: {
     'Regístrate una vez. Te tenemos en cuenta <span class="mark">siempre<i class="ul" aria-hidden="true"></i></span>.':
-      'Sign up once. We keep you in mind <span class="mark">for good<i class="ul" aria-hidden="true"></i></span>.'
+      'Sign up once. We keep you in mind <span class="mark">for good<i class="ul" aria-hidden="true"></i></span>.',
+    'Lo que todo el mundo pregunta.': 'What everyone asks.',
+    'Un CV. Todas las vacantes que encajen.': 'One CV. Every role that fits.'
   },
 
   attrs: {

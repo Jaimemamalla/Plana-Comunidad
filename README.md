@@ -45,8 +45,8 @@ Se puede forzar con `?lang=en` y se recuerda en `localStorage`.
 
 ## Qué hay aquí ahora
 
-Cuatro bloques: hero, la bandera ("Aquí nadie se queda sin respuesta"),
-tres ventajas y el formulario de CV.
+Seis bloques: hero, la bandera ("Aquí nadie se queda sin respuesta"),
+tres ventajas, el formulario de CV, el FAQ de candidatos y el cierre.
 
 El manifiesto, el FAQ y el cierre se movieron a la web de clientes el
 8 sep 2026: hablaban a la empresa, no al candidato. Eso dejó la web en una
@@ -54,12 +54,24 @@ sola sección, así que el mismo día se repartió el contenido que quedaba en
 esos cuatro bloques. **No se escribió ni un texto nuevo**: cada frase que
 había sigue estando, una sola vez, en otro sitio.
 
-El FAQ de candidatos y el cierre los tiene que escribir Marina.
+El FAQ de candidatos y el cierre se escribieron el 8 sep 2026 sin inventar
+ningún dato: todo lo que afirman ya estaba afirmado en una de las dos webs
+o en la política de privacidad. **Tres cosas que hay que confirmar antes de
+publicar**, y que están escritas a propósito sin el número que les falta:
+
+- El plazo de respuesta. "De verdad me vais a contestar" no dice cuánto se
+  tarda porque nadie lo ha fijado.
+- "Siempre puedes pedir que una persona revise tu candidatura" es una
+  obligación del artículo 22 del RGPD y, tal como está escrito, es un
+  compromiso público. Tiene que ser verdad.
+- "Acceso prioritario: conoces las vacantes antes de que se publiquen" no
+  tiene pregunta en el FAQ porque no está claro qué significa.
 
 ## Pendiente
 
-- [ ] **El FAQ de candidatos y el cierre.** La web se queda en una sola
-      sección hasta que existan.
+- [ ] **Confirmar las tres cosas del FAQ** que se listan arriba: el plazo
+      de respuesta, la revisión humana del artículo 22 y qué es el acceso
+      prioritario.
 - [ ] **El endpoint del formulario.** `index.html` apunta a
       `https://formspree.io/f/TU_ENDPOINT`. Mientras siga así, el formulario
       avisa al candidato de que no está conectado y no envía nada. No finge

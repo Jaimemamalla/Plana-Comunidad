@@ -2050,6 +2050,141 @@ input[type=range]::-moz-range-thumb {
   }
 }
 
+/* ============ FAQ ============ */
+
+.faq-wrap {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  padding: 26px 4px;
+  font-family: var(--ff-head);
+  font-weight: 600;
+  font-size: clamp(1.08rem,2vw,1.3rem);
+  letter-spacing: -0.02em;
+  color: var(--tinta);
+  transition: color .2s;
+}
+
+.faq-q:hover {
+  color: var(--cielo);
+}
+
+.faq-ico {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--cielo-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .25s, transform .35s;
+}
+
+.faq-ico svg {
+  transition: transform .35s;
+}
+
+.faq-item.open .faq-ico {
+  background: var(--sol);
+}
+
+.faq-item.open .faq-ico svg {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .4s cubic-bezier(.4,0,.2,1);
+}
+
+.faq-a-inner {
+  padding: 0 4px 28px;
+  color: var(--tinta-80);
+  font-size: 1.04rem;
+  line-height: 1.6;
+  max-width: 68ch;
+}
+
+.faq-a-inner b {
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+/* ============ CTA FINAL ============ */
+
+#cta {
+  background: var(--sol);
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-inner {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+#cta h2 {
+  font-size: clamp(2.6rem,7vw,5rem);
+  color: var(--tinta);
+  letter-spacing: -0.04em;
+}
+
+#cta p {
+  font-size: 1.2rem;
+  color: var(--tinta-80);
+  margin: 20px 0 34px;
+  font-weight: 500;
+}
+
+#cta .btn {
+  font-size: 1.1rem;
+  padding: 18px 38px;
+}
+
+#cta::before,
+#cta::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.28);
+  filter: blur(8px);
+}
+
+#cta::before {
+  width: 240px;
+  height: 240px;
+  top: -100px;
+  left: -60px;
+}
+
+#cta::after {
+  width: 200px;
+  height: 200px;
+  bottom: -90px;
+  right: -50px;
+}
+
 /* form */
 
 .com-form {
@@ -3296,6 +3431,7 @@ footer {
     </a>
     <nav class="nav-links" aria-label="Principal">
       <a href="#ventajas">La comunidad</a>
+      <a href="#faq">FAQ</a>
       <!-- TODO(web-clientes): sustituir por la URL de la web de clientes -->
       <a href="#" data-todo="url-clientes">Soy empresa</a>
     </nav>
@@ -3409,6 +3545,61 @@ footer {
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section class="section-pad" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2 id="faq-title">Lo que todo el mundo pregunta.</h2>
+    </div>
+    <div class="faq-wrap reveal d1">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Me cuesta algo?<span class="faq-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#10243A" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><b>Nada. Nunca.</b> Plana cobra a las empresas un precio fijo por cubrir cada vacante, y ese es todo nuestro negocio. Un candidato no paga por unirse, ni por que le presentemos a una empresa, ni por nada. Si alguien te pide dinero en nuestro nombre, no somos nosotros.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Tengo que apuntarme a cada oferta?<span class="faq-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#10243A" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">No, y ese es justo el sentido de la Comunidad. Subes tu CV <b>una vez</b> y Planax lo cruza con cada vacante que abrimos. Si encajas, te escribimos nosotros. No tienes que estar mirando ofertas ni reenviando el mismo PDF cien veces.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿De verdad me vais a contestar?<span class="faq-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#10243A" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sí. Es nuestra bandera y por eso está escrita en la portada. Si entras en un proceso, sabrás en qué punto estás y qué se ha decidido, también cuando la respuesta es que no. <b>Estar en la Comunidad no llena tu bandeja de entrada:</b> te escribimos cuando hay una vacante que encaja contigo, no antes.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Quién ve mi CV?<span class="faq-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#10243A" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Nuestro equipo y, cuando tu candidatura avanza en un proceso, la empresa de esa vacante. Nadie más. <b>No vendemos tus datos ni los usamos para entrenar modelos de terceros.</b> Puedes pedirnos que los borremos cuando quieras escribiendo a <a href="mailto:hello@beplana.com">hello@beplana.com</a>. Está todo detallado en la <a href="legal/privacidad.html">Política de Privacidad</a>.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Qué es Planax y decide una máquina por mí?<span class="faq-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#10243A" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Planax es nuestra IA propia: lee tu CV, lo cruza con las vacantes abiertas y hace el primer cribado. <b>No decide sola.</b> Detrás de cada proceso hay personas de nuestro equipo, y siempre puedes pedir que una persona revise tu candidatura.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Todas las ofertas llevan rango salarial?<span class="faq-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#10243A" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Todas. Sin "salario a convenir" y sin averiguarlo en la cuarta entrevista. Si una oferta de Plana no publica su rango, <b>es un error nuestro</b> y queremos que nos lo digas.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Sois una ETT?<span class="faq-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#10243A" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. No te ponemos en nuestra nómina ni te cedemos a nadie. Hacemos selección directa: te presentamos a la empresa y, si os elegís, <b>firmas con ella</b>. Trabajas para ella desde el día uno, con su contrato y sus condiciones.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Solo trabajáis en España?<span class="faq-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#10243A" stroke-width="2.4" stroke-linecap="round"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Nuestro foco es España. Si estás fuera pero te interesan las vacantes de aquí, súbenos el CV igual y te tenemos en cuenta para las que encajen.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="section-pad" id="cta">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <h2>Un CV. Todas las vacantes que encajen.</h2>
+      <p>Sin apuntarte a cada oferta y sin quedarte esperando una respuesta que no llega.</p>
+      <a href="#unete" class="btn btn-tinta">Únete a la Comunidad Plana</a>
+    </div>
+  </div>
+</section>
+
 <!-- modal manual (fallback) -->
 <div class="modal-overlay" id="manualModal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mm-title">
@@ -3446,6 +3637,7 @@ footer {
         <h4>Candidatos</h4>
         <ul>
           <li><a href="#unete">Únete a la comunidad</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -3510,6 +3702,31 @@ footer {
     });
   }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ io.observe(el); });
+
+  /* ---- FAQ accordion ---- */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        if(o !== item){
+          o.classList.remove('open');
+          o.querySelector('.faq-a').style.maxHeight = null;
+          o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+        }
+      });
+      if(open){
+        item.classList.remove('open');
+        a.style.maxHeight = null;
+        q.setAttribute('aria-expanded','false');
+      } else {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded','true');
+      }
+    });
+  });
 
   /* ---- Comunidad: CV dropzone + extracción + modal + toast ---- */
   (function(){
@@ -3798,7 +4015,7 @@ function kinetize(el){
     i.style.transitionDelay = (k * 0.055).toFixed(3) + 's';
   });
 }
-var heads = document.querySelectorAll('.sec-head h2');
+var heads = document.querySelectorAll('.sec-head h2, #cta h2');
 heads.forEach(kinetize);
 if(reduce){
   heads.forEach(function(h){ h.classList.add('kin-in'); });
