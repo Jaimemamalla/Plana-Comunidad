@@ -34,8 +34,9 @@ falta subirlo a producción.
 
 Traduce por nodo de texto, no por elemento, para no tocar el marcado. Los
 titulares que la capa de punch trocea en palabras van en `heads`, por
-elemento entero, y los demás en `text`. Ahora mismo `heads` está vacío: los
-dos titulares que iban ahí se fueron con el FAQ y el cierre.
+elemento entero, y los demás en `text`. Ahora mismo `heads` solo lleva el h1,
+porque tiene dentro el subrayado amarillo y hay que reemplazar el elemento
+entero para no perderlo.
 
 **El mismo motor está en el repo de clientes.** Si se arregla algo aquí, hay
 que copiarlo allí, y al revés.
@@ -44,10 +45,16 @@ Se puede forzar con `?lang=en` y se recuerda en `localStorage`.
 
 ## Qué hay aquí ahora
 
-Solo la sección de la Comunidad Plana. El manifiesto, el FAQ y el cierre
-se movieron a la web de clientes el 8 sep 2026: hablaban a la empresa, no
-al candidato. El FAQ de candidatos y el cierre nuevo los tiene que escribir
-Marina.
+Cuatro bloques: hero, la bandera ("Aquí nadie se queda sin respuesta"),
+tres ventajas y el formulario de CV.
+
+El manifiesto, el FAQ y el cierre se movieron a la web de clientes el
+8 sep 2026: hablaban a la empresa, no al candidato. Eso dejó la web en una
+sola sección, así que el mismo día se repartió el contenido que quedaba en
+esos cuatro bloques. **No se escribió ni un texto nuevo**: cada frase que
+había sigue estando, una sola vez, en otro sitio.
+
+El FAQ de candidatos y el cierre los tiene que escribir Marina.
 
 ## Pendiente
 

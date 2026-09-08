@@ -1,6 +1,6 @@
 window.PLANA_I18N = {
 
-  headSelectors: '.sec-head h2',
+  headSelectors: '#com-title',
 
   text: {
     /* nav */
@@ -10,8 +10,6 @@ window.PLANA_I18N = {
 
     /* comunidad */
     'Comunidad Plana': 'The Plana Community',
-    /* este titular no lo trocea la capa de punch, así que va aquí y no en heads */
-    'Regístrate una vez. Te tenemos en cuenta siempre.': 'Sign up once. We keep you in mind for good.',
     'Aquí nadie se queda sin respuesta.': 'Nobody here goes without an answer.',
     'Feedback siempre. Es nuestra bandera, no una promesa de marketing.':
       'Feedback always. It is our flag, not a marketing promise.',
@@ -61,9 +59,12 @@ window.PLANA_I18N = {
     'entre Asturias y Madrid.': 'between Asturias and Madrid.'
   },
 
-  /* Ninguno de los titulares que quedan lo trocea la capa de punch: van en
-     text. heads vuelve a llenarse si esta web recupera una .sec-head. */
-  heads: {},
+  /* El h1 lleva el subrayado amarillo dentro, asi que se reemplaza el
+     elemento entero para no perder el marcado. */
+  heads: {
+    'Regístrate una vez. Te tenemos en cuenta <span class="mark">siempre<i class="ul" aria-hidden="true"></i></span>.':
+      'Sign up once. We keep you in mind <span class="mark">for good<i class="ul" aria-hidden="true"></i></span>.'
+  },
 
   attrs: {
     'Plana, inicio': 'Plana, home',

@@ -1886,77 +1886,168 @@ input[type=range]::-moz-range-thumb {
   }
 }
 
+.gshape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: .5;
+  will-change: transform;
+}
+
+@keyframes floatA {
+  0%,
+  100% {
+    transform: translate(0,0) scale(1);
+  }
+  50% {
+    transform: translate(26px,-30px) scale(1.12);
+  }
+}
+
+@keyframes floatB {
+  0%,
+  100% {
+    transform: translate(0,0) scale(1);
+  }
+  50% {
+    transform: translate(-32px,24px) scale(1.1);
+  }
+}
+
+.gshape.fa {
+  animation: floatA 19s ease-in-out infinite;
+}
+
+.gshape.fb {
+  animation: floatB 24s ease-in-out infinite;
+}
+
 /* ============ COMUNIDAD ============ */
 
-#comunidad {
-  background: #EDF7FD;
+.hero-solo {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.com-grid {
+.hero-solo .eyebrow {
+  justify-content: center;
+}
+
+/* Mas especifico que el .hero h1 del bloque de abajo, que va a 124px:
+   ese titular es para "El fee ha muerto.", este tiene 48 caracteres. */
+.hero .hero-solo h1 {
+  font-size: clamp(2.4rem,5.2vw,4.1rem);
+  line-height: 1.04;
+}
+
+.hero-solo .hero-sub {
+  max-width: 46ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-solo .hero-cta {
+  justify-content: center;
+}
+
+/* La bandera: el titular de #ventajas, en su propia banda oscura para
+   partir una pagina que si no seria clara de arriba abajo. */
+
+.bandera {
+  background: var(--tinta);
+  overflow: hidden;
+  padding: clamp(64px,9vw,110px) 0;
+}
+
+.bandera-txt {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  max-width: 20ch;
+  margin: 0 auto;
+  font-size: clamp(2.1rem,5.4vw,3.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.bandera-txt::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--sol);
+  margin: 30px auto 0;
+}
+
+.vent-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(36px,5vw,72px);
-  align-items: start;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
 }
 
-.com-copy .flag {
-  margin: 22px 0 28px;
+.vent {
   background: #fff;
   border: 1px solid var(--line);
-  border-left: 5px solid var(--sol);
-  border-radius: 14px;
-  padding: 22px 24px;
+  border-radius: var(--r-lg);
+  padding: 32px 30px 34px;
   box-shadow: var(--card-shadow);
+  transition: transform .3s, box-shadow .3s;
 }
 
-.com-copy .flag strong {
-  font-family: var(--ff-head);
-  font-weight: 700;
-  font-size: 1.35rem;
-  display: block;
-  letter-spacing: -0.02em;
+.vent:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-lg);
 }
 
-.com-copy .flag span {
-  color: var(--tinta-80);
-  font-size: .98rem;
-}
-
-.com-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin-top: 4px;
-}
-
-.com-list li {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-
-.com-list .ci {
-  flex: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
+.vent .ci {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   background: var(--cielo-claro);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1px;
+  margin-bottom: 22px;
 }
 
-.com-list b {
-  font-weight: 600;
-  color: var(--tinta);
+.vent h3 {
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
 }
 
-.com-list p {
+.vent p {
   color: var(--tinta-80);
-  font-size: .99rem;
-  line-height: 1.45;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Menos aire arriba: la banda oscura de encima hace de titular de esta
+   seccion, asi que las tarjetas tienen que leerse pegadas a ella. */
+#ventajas {
+  padding-top: clamp(48px,6vw,84px);
+}
+
+#unete {
+  background: #EDF7FD;
+}
+
+.unete-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+@media(max-width:860px) {
+  .vent-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* form */
@@ -2039,9 +2130,6 @@ input[type=range]::-moz-range-thumb {
 }
 
 @media(max-width:860px) {
-  .com-grid {
-    grid-template-columns: 1fr;
-  }
   .fg-row {
     grid-template-columns: 1fr;
   }
@@ -3207,87 +3295,116 @@ footer {
       <span class="word">plana</span>
     </a>
     <nav class="nav-links" aria-label="Principal">
-      <a href="#comunidad">La comunidad</a>
+      <a href="#ventajas">La comunidad</a>
       <!-- TODO(web-clientes): sustituir por la URL de la web de clientes -->
       <a href="#" data-todo="url-clientes">Soy empresa</a>
     </nav>
     <div class="nav-cta">
-      <a href="#comunidad" class="btn btn-sol btn-sm">Únete</a>
+      <a href="#unete" class="btn btn-sol btn-sm">Únete</a>
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<!-- ============ COMUNIDAD PLANA ============ -->
-<section class="section-pad" id="comunidad" aria-labelledby="com-title">
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero" aria-labelledby="com-title">
+  <div class="sky" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
   <div class="wrap">
-    <div class="com-grid">
-      <div class="com-copy reveal">
-        <span class="eyebrow">Comunidad Plana</span>
-        <h2 id="com-title" style="font-size:clamp(2.1rem,4.6vw,3.4rem);margin-top:16px">Regístrate una vez. Te tenemos en cuenta siempre.</h2>
-        <div class="flag">
-          <strong>Aquí nadie se queda sin respuesta.</strong>
-          <span>Feedback siempre. Es nuestra bandera, no una promesa de marketing.</span>
-        </div>
-        <ul class="com-list">
-          <li>
-            <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4FB3E8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <p><b>Sin reenviar tu CV cien veces.</b> Planax te tiene en cuenta para todas las vacantes compatibles.</p>
-          </li>
-          <li>
-            <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="#4FB3E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <p><b>Transparencia salarial.</b> Todas las ofertas de Plana publican rango salarial. Siempre.</p>
-          </li>
-          <li>
-            <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="#4FB3E8" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-            <p><b>Acceso prioritario.</b> Conoces las vacantes antes de que se publiquen.</p>
-          </li>
-        </ul>
+    <div class="hero-solo">
+      <span class="eyebrow reveal in">Comunidad Plana</span>
+      <h1 id="com-title" class="reveal in d1">Regístrate una vez. Te tenemos en cuenta <span class="mark">siempre<i class="ul" aria-hidden="true"></i></span>.</h1>
+      <p class="hero-sub reveal in d2">Feedback siempre. Es nuestra bandera, no una promesa de marketing.</p>
+      <div class="hero-cta reveal in d3">
+        <a href="#unete" class="btn btn-sol">Únete a la Comunidad Plana</a>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="reveal d2">
-        <form class="com-form" id="comForm" action="https://formspree.io/f/TU_ENDPOINT" method="POST" enctype="multipart/form-data" novalidate>
-          <h3>Únete a la Comunidad Plana</h3>
-          <p class="sub">Sube tu CV. Planax extrae tus datos. Tú no rellenas nada.</p>
+<!-- ============ LA BANDERA ============ -->
+<!-- Este titular es el de la seccion de ventajas de abajo: va en su propia
+     banda oscura para partir la pagina, y #ventajas lo referencia con
+     aria-labelledby en vez de repetirlo. -->
+<section class="bandera">
+  <span class="gshape fa" style="width:340px;height:340px;background:rgba(79,179,232,.22);top:-45%;left:2%"></span>
+  <span class="gshape fb" style="width:300px;height:300px;background:rgba(255,215,94,.16);bottom:-55%;right:3%"></span>
+  <div class="wrap">
+    <h2 class="bandera-txt reveal" id="flag-title">Aquí nadie se queda sin respuesta.</h2>
+  </div>
+</section>
 
-          <label class="dropzone" id="dropzone" for="c-cv">
-            <input type="file" id="c-cv" name="cv" accept=".pdf,.doc,.docx,.txt" hidden />
-            <div class="dz-state dz-idle">
-              <span class="dz-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0l-4 4m4-4l4 4" stroke="#4FB3E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="#4FB3E8" stroke-width="2" stroke-linecap="round"/></svg></span>
-              <span class="dz-title">Arrastra tu CV aquí</span>
-              <span class="dz-sub">o haz clic para elegir · PDF, DOC o TXT</span>
-            </div>
-            <div class="dz-state dz-busy" hidden>
-              <span class="dz-spin"></span>
-              <span class="dz-title">Planax está leyendo tu CV…</span>
-              <span class="dz-sub" id="dzFile">documento.pdf</span>
-            </div>
-            <div class="dz-state dz-done" hidden>
-              <span class="dz-ico ok"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#1F8A5B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="dz-title">CV recibido</span>
-              <span class="dz-sub" id="dzFileDone">documento.pdf · <a href="#" id="dzChange">cambiar</a></span>
-            </div>
-          </label>
+<!-- ============ LO QUE GANAS ============ -->
+<section class="section-pad" id="ventajas" aria-labelledby="flag-title">
+  <div class="wrap">
+    <div class="vent-grid">
+      <article class="vent reveal d1">
+        <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4FB3E8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Sin reenviar tu CV cien veces.</h3>
+        <p>Planax te tiene en cuenta para todas las vacantes compatibles.</p>
+      </article>
+      <article class="vent reveal d2">
+        <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="#4FB3E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3>Transparencia salarial.</h3>
+        <p>Todas las ofertas de Plana publican rango salarial. Siempre.</p>
+      </article>
+      <article class="vent reveal d3">
+        <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="#4FB3E8" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
+        <h3>Acceso prioritario.</h3>
+        <p>Conoces las vacantes antes de que se publiquen.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-          <div class="extracted" id="extracted" hidden>
-            <div class="ex-tag"><span class="live-dot"></span>Datos extraídos por Planax</div>
-            <div class="ex-fields">
-              <div class="ex-field"><label for="f-name">Nombre</label><input type="text" id="f-name" name="nombre" placeholder="Tu nombre" /></div>
-              <div class="ex-field"><label for="f-email">Email</label><input type="email" id="f-email" name="email" placeholder="tu@email.com" /></div>
-            </div>
+<!-- ============ FORMULARIO ============ -->
+<section class="section-pad" id="unete" aria-labelledby="unete-title">
+  <div class="wrap">
+    <div class="unete-inner reveal">
+      <form class="com-form" id="comForm" action="https://formspree.io/f/TU_ENDPOINT" method="POST" enctype="multipart/form-data" novalidate>
+        <h3 id="unete-title">Únete a la Comunidad Plana</h3>
+        <p class="sub">Sube tu CV. Planax extrae tus datos. Tú no rellenas nada.</p>
+
+        <label class="dropzone" id="dropzone" for="c-cv">
+          <input type="file" id="c-cv" name="cv" accept=".pdf,.doc,.docx,.txt" hidden />
+          <div class="dz-state dz-idle">
+            <span class="dz-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0l-4 4m4-4l4 4" stroke="#4FB3E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="#4FB3E8" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <span class="dz-title">Arrastra tu CV aquí</span>
+            <span class="dz-sub">o haz clic para elegir · PDF, DOC o TXT</span>
           </div>
+          <div class="dz-state dz-busy" hidden>
+            <span class="dz-spin"></span>
+            <span class="dz-title">Planax está leyendo tu CV…</span>
+            <span class="dz-sub" id="dzFile">documento.pdf</span>
+          </div>
+          <div class="dz-state dz-done" hidden>
+            <span class="dz-ico ok"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#1F8A5B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="dz-title">CV recibido</span>
+            <span class="dz-sub" id="dzFileDone">documento.pdf · <a href="#" id="dzChange">cambiar</a></span>
+          </div>
+        </label>
 
-          <label class="privacy">
-            <input type="checkbox" id="c-privacy" name="privacidad" required />
-            <span class="pcheck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="ptext">Acepto la <a href="legal/privacidad.html">Política de Privacidad</a> y el tratamiento de mis datos para avisarme de vacantes compatibles.</span>
-          </label>
+        <div class="extracted" id="extracted" hidden>
+          <div class="ex-tag"><span class="live-dot"></span>Datos extraídos por Planax</div>
+          <div class="ex-fields">
+            <div class="ex-field"><label for="f-name">Nombre</label><input type="text" id="f-name" name="nombre" placeholder="Tu nombre" /></div>
+            <div class="ex-field"><label for="f-email">Email</label><input type="email" id="f-email" name="email" placeholder="tu@email.com" /></div>
+          </div>
+        </div>
 
-          <button type="submit" class="btn btn-sol" id="comSubmit">Únete a la Comunidad Plana</button>
-          <p class="form-error" id="comError" role="alert" hidden></p>
-          <p class="legal">Tus datos son tuyos. Aquí nadie se queda sin respuesta.</p>
-        </form>
-      </div>
+        <label class="privacy">
+          <input type="checkbox" id="c-privacy" name="privacidad" required />
+          <span class="pcheck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="ptext">Acepto la <a href="legal/privacidad.html">Política de Privacidad</a> y el tratamiento de mis datos para avisarme de vacantes compatibles.</span>
+        </label>
+
+        <button type="submit" class="btn btn-sol" id="comSubmit">Únete a la Comunidad Plana</button>
+        <p class="form-error" id="comError" role="alert" hidden></p>
+        <p class="legal">Tus datos son tuyos. Aquí nadie se queda sin respuesta.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -3328,7 +3445,7 @@ footer {
       <div class="foot-col">
         <h4>Candidatos</h4>
         <ul>
-          <li><a href="#comunidad">Únete a la comunidad</a></li>
+          <li><a href="#unete">Únete a la comunidad</a></li>
         </ul>
       </div>
       <div class="foot-col">
