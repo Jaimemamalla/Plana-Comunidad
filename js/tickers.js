@@ -32,9 +32,16 @@
     bands.push({ el: b, row: row, anim: null, speed: { v: 1 } });
   }
 
-  /* Una sola banda, y va aqui a proposito: entre el formulario y el FAQ
-     hay dos secciones claras seguidas y el amarillo las parte. El cierre,
-     que tambien es amarillo, queda al otro lado del FAQ. */
+  /* Dos bandas, cada una parte una tirada de secciones claras: la oscura
+     entre el hero y el proceso, la amarilla entre el formulario y el FAQ.
+     El cierre, que tambien es amarillo, queda al otro lado del FAQ. */
+  band(
+    ['un cv', 'todas las vacantes que encajen', 'sin apuntarte a cada oferta', 'be smart, be plana'],
+    false,
+    document.getElementById('como'),
+    'before'
+  );
+
   band(
     ['aquí nadie se queda sin respuesta', 'feedback siempre', 'rango salarial en todas las ofertas', 'be smart, be plana'],
     true,

@@ -4,6 +4,7 @@ window.PLANA_I18N = {
 
   text: {
     /* nav */
+    'Comparativa': 'Compare',
     'La comunidad': 'The community',
     'Soy empresa': 'I am a company',
     'Únete': 'Join',
@@ -45,6 +46,36 @@ window.PLANA_I18N = {
       'We could not read everything from the CV. Just leave us this and you are in.',
     'Confirmar': 'Confirm',
     '¡Estás dentro de la Comunidad Plana!': 'You are in the Plana Community!',
+
+    /* como funciona */
+    'Cómo funciona': 'How it works',
+    'Tú solo haces el primero. A partir de ahí te buscamos nosotros.':
+      'You only do the first one. From there we do the looking.',
+    'Subes tu CV': 'You upload your CV',
+    'Una vez. Planax lee tus datos y los rellena por ti, así que no hay formulario largo ni volver a escribir lo que ya pone en el currículum.':
+      'Once. Planax reads your details and fills them in for you, so there is no long form and no retyping what your CV already says.',
+    'Planax lo cruza con cada vacante': 'Planax matches it against every role',
+    'Con todas las que abrimos, no solo con la que estuvieras mirando. No tienes que apuntarte a nada ni vigilar ofertas.':
+      'Every role we open, not just the one you happened to be looking at. Nothing to apply to and no listings to watch.',
+    'Te escribimos nosotros': 'We write to you',
+    'Cuando hay algo que encaja. Y si entras en un proceso, sabes en qué punto estás hasta el final, también si la respuesta es que no.':
+      'When something fits. And if you enter a process, you know where you stand right to the end, including when the answer is no.',
+
+    /* comparativa */
+    'Buscar por tu cuenta vs Comunidad Plana': 'Job hunting alone vs the Plana Community',
+    'Por tu cuenta': 'On your own',
+    'Inscribirte': 'Applying',
+    'Subes el CV una vez': 'Upload your CV once',
+    'Una solicitud por oferta': 'One application per listing',
+    'Enterarte de las vacantes': 'Hearing about roles',
+    'Te escribimos si encajas': 'We write if you fit',
+    'Vigilar portales tú': 'You watch the job boards',
+    'El salario': 'The salary',
+    'Rango publicado, siempre': 'Range published, always',
+    '"Salario a convenir"': '"Salary negotiable"',
+    'Después de enviarlo': 'After you send it',
+    'Sabes en qué punto estás': 'You know where you stand',
+    'Silencio': 'Silence',
 
     /* faq */
     'FAQ': 'FAQ',
@@ -112,6 +143,8 @@ window.PLANA_I18N = {
   heads: {
     'Regístrate una vez. Te tenemos en cuenta <span class="mark">siempre<i class="ul" aria-hidden="true"></i></span>.':
       'Sign up once. We keep you in mind <span class="mark">for good<i class="ul" aria-hidden="true"></i></span>.',
+    'Tres pasos, y dos son nuestros.': 'Three steps, and two are ours.',
+    'Lo de siempre. Y lo de aquí.': 'The usual way. And this way.',
     'Lo que todo el mundo pregunta.': 'What everyone asks.',
     'Un CV. Todas las vacantes que encajen.': 'One CV. Every role that fits.'
   },
@@ -132,7 +165,12 @@ window.PLANA_I18N = {
     description: 'The Plana Community: send us your CV once and we will consider you for every role you fit. Feedback always, a salary range on every listing and early access.'
   },
 
+  /* el orden importa: i18n empareja por indice con las bandas del DOM */
   tickers: [
+    {
+      es: ['un cv', 'todas las vacantes que encajen', 'sin apuntarte a cada oferta', 'be smart, be plana'],
+      en: ['one cv', 'every role that fits', 'without applying to every listing', 'be smart, be plana']
+    },
     {
       es: ['aquí nadie se queda sin respuesta', 'feedback siempre', 'rango salarial en todas las ofertas', 'be smart, be plana'],
       en: ['nobody goes without an answer', 'feedback always', 'a salary range on every listing', 'be smart, be plana']

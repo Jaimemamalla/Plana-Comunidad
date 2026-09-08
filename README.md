@@ -47,9 +47,12 @@ Se puede forzar con `?lang=en` y se recuerda en `localStorage`.
 
 ## Qué hay aquí ahora
 
-Seis bloques: hero, la bandera ("Aquí nadie se queda sin respuesta"),
-tres ventajas, el formulario de CV, el FAQ de candidatos y el cierre, más
-la banda del ticker antes del FAQ y el dock que aparece al pasar el hero.
+Ocho bloques: hero, cómo funciona, la bandera ("Aquí nadie se queda sin
+respuesta"), tres ventajas, la comparativa, el formulario de CV, el FAQ de
+candidatos y el cierre. Más dos bandas de ticker y el dock.
+
+La comparativa y "cómo funciona" reusan el CSS de `.compare` y `.step`, que
+ya estaba aquí sin usar desde que el sitio se separó del de clientes.
 
 El manifiesto, el FAQ y el cierre se movieron a la web de clientes el
 8 sep 2026: hablaban a la empresa, no al candidato. Eso dejó la web en una
