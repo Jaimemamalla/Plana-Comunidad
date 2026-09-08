@@ -1998,14 +1998,14 @@ input[type=range]::-moz-range-thumb {
 /* letras del titular: cada una entra desde su distancia al centro de su
    propia línea, así que hace falta perspectiva en el contenedor */
 .hero-solo h1 {
-  perspective: 600px;
+  perspective: 460px;
 }
 
 .hero-solo h1 .hc {
   display: inline-block;
   opacity: 0;
   transform: translateX(var(--hx,0)) rotateX(var(--hr,0));
-  transition: transform .8s cubic-bezier(.16,1,.3,1), opacity .5s ease;
+  transition: transform 1.5s cubic-bezier(.16,1,.3,1), opacity .9s ease;
 }
 
 .hero-solo h1.hin .hc {
@@ -4254,9 +4254,9 @@ if(!reduce){
       var center = (row[0].offsetLeft + last.offsetLeft + last.offsetWidth) / 2;
       row.forEach(function(c){
         var dist = (c.offsetLeft + c.offsetWidth / 2) - center;
-        c.style.setProperty('--hx', (dist * .4).toFixed(1) + 'px');
-        c.style.setProperty('--hr', (dist * .22).toFixed(1) + 'deg');
-        c.style.transitionDelay = (Math.abs(dist) * .0015).toFixed(3) + 's';
+        c.style.setProperty('--hx', (dist * .65).toFixed(1) + 'px');
+        c.style.setProperty('--hr', (dist * .34).toFixed(1) + 'deg');
+        c.style.transitionDelay = Math.min(Math.abs(dist) * .0028, 1).toFixed(3) + 's';
       });
     });
   }
