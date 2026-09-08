@@ -1995,6 +1995,24 @@ input[type=range]::-moz-range-thumb {
   justify-content: center;
 }
 
+/* letras del titular: cada una entra desde su distancia al centro de su
+   propia línea, así que hace falta perspectiva en el contenedor */
+.hero-solo h1 {
+  perspective: 600px;
+}
+
+.hero-solo h1 .hc {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(var(--hx,0)) rotateX(var(--hr,0));
+  transition: transform .8s cubic-bezier(.16,1,.3,1), opacity .5s ease;
+}
+
+.hero-solo h1.hin .hc {
+  opacity: 1;
+  transform: none;
+}
+
 /* La bandera: el titular de #ventajas, en su propia banda oscura para
    partir una pagina que si no seria clara de arriba abajo. */
 
@@ -4202,6 +4220,62 @@ addEventListener('plana:lang', function(){
     h.classList.add('kin-in');
   });
 });
+
+/* letras del titular del hero: entran desde el lado de su línea y
+   convergen al centro. i18n reescribe el h1 entero en cada cambio de
+   idioma (va en headSelectors), así que hay que volver a trocearlo
+   cada vez, ya asentado y sin repetir la animación. */
+if(!reduce){
+  var heroTitle = document.getElementById('com-title');
+  function splitLetters(el){
+    Array.prototype.slice.call(el.childNodes).forEach(function(n){
+      if(n.nodeType === 3){
+        var frag = document.createDocumentFragment();
+        n.textContent.split('').forEach(function(ch){
+          var s = document.createElement('span');
+          s.className = 'hc';
+          s.textContent = ch === ' ' ? ' ' : ch;
+          frag.appendChild(s);
+        });
+        el.replaceChild(frag, n);
+      } else if(n.nodeType === 1 && n.tagName !== 'I'){
+        splitLetters(n);
+      }
+    });
+  }
+  function placeLetters(el){
+    var rows = {};
+    el.querySelectorAll('.hc').forEach(function(c){
+      (rows[c.offsetTop] = rows[c.offsetTop] || []).push(c);
+    });
+    Object.keys(rows).forEach(function(top){
+      var row = rows[top];
+      var last = row[row.length - 1];
+      var center = (row[0].offsetLeft + last.offsetLeft + last.offsetWidth) / 2;
+      row.forEach(function(c){
+        var dist = (c.offsetLeft + c.offsetWidth / 2) - center;
+        c.style.setProperty('--hx', (dist * .4).toFixed(1) + 'px');
+        c.style.setProperty('--hr', (dist * .22).toFixed(1) + 'deg');
+        c.style.transitionDelay = (Math.abs(dist) * .0015).toFixed(3) + 's';
+      });
+    });
+  }
+  if(heroTitle){
+    splitLetters(heroTitle);
+    placeLetters(heroTitle);
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        heroTitle.classList.add('hin');
+      });
+    });
+    addEventListener('plana:lang', function(){
+      heroTitle.classList.remove('hin');
+      splitLetters(heroTitle);
+      placeLetters(heroTitle);
+      heroTitle.classList.add('hin');
+    });
+  }
+}
 
 if(!reduce){
   /* botones magnéticos */
