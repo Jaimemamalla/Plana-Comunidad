@@ -15,7 +15,7 @@ js/dict-comunidad.js       diccionario español a inglés
 css/legal.css              estilos de las páginas legales
 legal/                     aviso legal, privacidad y cookies
 serve.ps1                  servidor local para previsualizar
-og.source.html             (pendiente) fuente de la imagen para compartir
+og.source.html             fuente de og.png, se renderiza con Chrome headless
 ```
 
 ## Verlo en local
@@ -52,10 +52,8 @@ Se puede forzar con `?lang=en` y se recuerda en `localStorage`.
       la parte del artículo 22 del RGPD: la web dice que Planax criba y
       puntúa candidaturas, y eso obliga a informar de la lógica y a permitir
       intervención humana.
-- [ ] **La `og.png`**, de 1200x630. En el repo de clientes hay una plantilla
-      `og.source.html` que se renderiza con Chrome en headless.
-- [ ] **El dominio.** `og:url` y `canonical` apuntan a
-      `beplana.com/comunidad/`, que es donde estaba antes de separarse.
+- [ ] **El dominio.** `og:url`, `og:image`, `canonical` y `twitter:image`
+      llevan un marcador de Netlify. Hay que poner el definitivo al desplegar.
 - [ ] **El enlace a la web de clientes.** Los dos `data-todo="url-clientes"`
       del nav y del footer esperan su URL.
 - [ ] **Las páginas legales están duplicadas** en los dos repos. Cuando haya
