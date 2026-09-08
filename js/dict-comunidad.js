@@ -137,5 +137,10 @@ window.PLANA_I18N = {
       es: ['aquí nadie se queda sin respuesta', 'feedback siempre', 'rango salarial en todas las ofertas', 'be smart, be plana'],
       en: ['nobody goes without an answer', 'feedback always', 'a salary range on every listing', 'be smart, be plana']
     }
-  ]
+  ],
+
+  dock: {
+    es: ['Un CV. Todas las vacantes que encajen.', 'Feedback siempre.', 'Únete'],
+    en: ['One CV. Every role that fits.', 'Feedback always.', 'Join']
+  }
 };

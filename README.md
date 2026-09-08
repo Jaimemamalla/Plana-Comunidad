@@ -12,6 +12,8 @@ el 3 sep 2026 conservando su historial, con `git subtree split`.
 index.html                 la web entera, con CSS y JS inline
 js/i18n.js                 motor del selector de idioma
 js/dict-comunidad.js       diccionario español a inglés
+js/anime.iife.min.js       anime.js v4, build IIFE
+js/tickers.js              la banda amarilla, a 60 px/s sea cual sea su ancho
 css/legal.css              estilos de las páginas legales
 legal/                     aviso legal, privacidad y cookies
 serve.ps1                  servidor local para previsualizar
@@ -46,7 +48,8 @@ Se puede forzar con `?lang=en` y se recuerda en `localStorage`.
 ## Qué hay aquí ahora
 
 Seis bloques: hero, la bandera ("Aquí nadie se queda sin respuesta"),
-tres ventajas, el formulario de CV, el FAQ de candidatos y el cierre.
+tres ventajas, el formulario de CV, el FAQ de candidatos y el cierre, más
+la banda del ticker antes del FAQ y el dock que aparece al pasar el hero.
 
 El manifiesto, el FAQ y el cierre se movieron a la web de clientes el
 8 sep 2026: hablaban a la empresa, no al candidato. Eso dejó la web en una

@@ -3240,10 +3240,31 @@ footer {
   flex: none;
 }
 
+/* En móvil el dock era una píldora flotante sobre el contenido y tapaba
+   texto, porque nada reservaba su espacio. Pasa a barra de ancho completo
+   pegada abajo, y el body deja hueco para ella. */
 @media(max-width:640px) {
   #dock i,
   #dock .sep {
     display: none;
+  }
+  #dock {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    border-radius: 0;
+    padding: 12px 16px;
+    box-shadow: 0 -12px 30px -18px rgba(16,36,58,.9);
+    transform: translate(0,180%);
+  }
+  #dock.on {
+    transform: translate(0,0);
+  }
+  body {
+    padding-bottom: 68px;
   }
 }
 
@@ -3970,28 +3991,15 @@ var pgs = document.createElement('div');
 pgs.id = 'pgs';
 document.body.appendChild(pgs);
 
-/* bandas ticker */
-function band(frases, sol, ref, pos){
-  if(!ref) return;
-  var b = document.createElement('div');
-  b.className = 'tkband' + (sol?' sol':'');
-  b.setAttribute('aria-hidden','true');
-  var row = document.createElement('div');
-  row.className = 'row';
-  var html = frases.map(function(f){
-    return '<em>' + f + '</em>';
-  }).join('');
-  row.innerHTML = html + html;
-  b.appendChild(row);
-  ref.parentNode.insertBefore(b, pos === 'before' ? ref : ref.nextSibling);
-}
-
-band(
-  ['aquí nadie se queda sin respuesta','feedback siempre','rango salarial en todas las ofertas','be smart, be plana'],
-  true,
-  document.getElementById('manifiesto'),
-  'before'
-);
+/* dock flotante */
+var dock = document.createElement('div');
+dock.id = 'dock';
+dock.innerHTML =
+  '<b>Un CV. Todas las vacantes que encajen.</b>' +
+  '<span class="sep"></span>' +
+  '<i>Feedback siempre.</i>' +
+  '<a href="#unete" class="btn btn-sol btn-sm">Únete</a>';
+document.body.appendChild(dock);
 
 /* titulares cinéticos */
 function kinetize(el){
@@ -4055,13 +4063,20 @@ if(!reduce){
 }
 
 /* scroll maestro */
+var heroEl = document.querySelector(".hero");
+var ctaEl  = document.getElementById("cta");
 var raf=false;
 function onScroll(){
   if(raf) return; raf=true;
   requestAnimationFrame(function(){
     raf=false;
     var h = document.documentElement.scrollHeight - innerHeight;
-    pgs.style.width = (h>0 ? (scrollY/h*100) : 0) + '%';
+    pgs.style.width = (h>0 ? (scrollY/h*100) : 0) + "%";
+    /* el dock aparece pasado el hero y se retira en el cierre, que ya
+       lleva su propio boton */
+    var past  = heroEl ? scrollY > heroEl.offsetHeight * 0.75 : scrollY > 600;
+    var atEnd = ctaEl ? ctaEl.getBoundingClientRect().top < innerHeight * 0.9 : false;
+    dock.classList.toggle("on", past && !atEnd);
   });
 }
 addEventListener('scroll', onScroll, {passive:true});
@@ -4070,5 +4085,8 @@ onScroll();
 })();
 
 </script>
+
+<script src="js/anime.iife.min.js"></script>
+<script src="js/tickers.js"></script>
 </body>
 </html>
